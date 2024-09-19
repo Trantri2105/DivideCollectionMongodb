@@ -20,3 +20,25 @@
     newCollection["user"] = "user_attribute"
     ```
     Các document có giá trị `entity_type` là `device` sẽ được lưu vào `device_attribute` còn `user` sẽ được lưu vào `user_attribute`
+
+## Test
+1. Tạo 2000 record và lưu vào trong collection `attribute`, 1000 record có `entity_type` là `user` và 1000 record là `device`. Mỗi record có dạng
+   ```
+   {
+      entity_id:  ,
+      entity_type:  
+   }
+   ```
+   hoặc
+   ```
+   {
+      entity_id:  ,
+      entity_type:  ,
+      entity_name:
+   }
+   ```
+   
+2. Lấy record đã lưu trong attribute và chia vào 2 slice `userDocuments` và `deviceDocuments`
+3. Chạy hàm main để tiến hành chia collection
+4. Lấy các record trong `user_attribute` và so sánh với `userDocuments`
+5. Lấy các record trong `device_attribute` và so sánh với `deviceDocuments`

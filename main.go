@@ -78,6 +78,17 @@ func main() {
 		}
 	}
 
+	for key, value := range newCollection {
+		if len(documents[key]) == 0 {
+			continue
+		}
+		_, err := client.Database(database).Collection(value).InsertMany(context.Background(), documents[key])
+		if err != nil {
+			log.Fatal("Failed to insert documents:", err)
+		}
+		documents[key] = []interface{}{}
+	}
+
 	if err := cursor.Err(); err != nil {
 		log.Fatal(err)
 	}
