@@ -10,7 +10,6 @@
 
 ## Set up
 - Để code hoạt động, ta cần phải khai báo giá trị cho một số biến sau đây
-  - Chỉnh sửa struct `Attribute`
   - `mongodbURI`
   - `database`
   - `currentCollection`: tên collection cần chia

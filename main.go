@@ -11,13 +11,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type Attribute struct {
-	ID         interface{} `bson:"_id"`
-	EntityType string      `bson:"entity_type"`
-	EntityId   string      `bson:"entity_id"`
-}
-
 func main() {
+	start := time.Now()
 	mongodbURI := "mongodb://localhost:27017"
 	database := "attr"
 	currentCollection := "attribute"
@@ -62,11 +57,11 @@ func main() {
 
 	count := 0
 	for cursor.Next(context.Background()) {
-		var record Attribute
+		var record bson.M
 		if err := cursor.Decode(&record); err != nil {
 			log.Fatal(err)
 		}
-		documents[record.EntityType] = append(documents[record.EntityType], record)
+		documents[record["entity_type"].(string)] = append(documents[record["entity_type"].(string)], record)
 		count += 1
 
 		if count%batchSize == 0 {
@@ -88,4 +83,7 @@ func main() {
 	}
 
 	fmt.Printf("Total documents processed: %d\n", count)
+	end := time.Now()
+	duration := end.Sub(start)
+	fmt.Printf("Total runtime: %v\n", duration)
 }
