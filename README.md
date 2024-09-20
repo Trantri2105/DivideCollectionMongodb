@@ -36,11 +36,11 @@
         entity_type: "device",
         name: "abcd",
         ab: 1,
-		state: true,
+        state: true,
         abcd: {
 			a : "bc",
 			num: 123
-		}
+	    }
    }
    ```
    
