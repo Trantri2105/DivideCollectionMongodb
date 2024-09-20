@@ -32,9 +32,15 @@
    hoặc
    ```
    {
-      entity_id:  ,
-      entity_type:  ,
-      entity_name:
+        entity_id: "Entity_1",
+        entity_type: "device",
+        name: "abcd",
+        ab: 1,
+		state: true,
+        abcd: {
+			a : "bc",
+			num: 123
+		}
    }
    ```
    

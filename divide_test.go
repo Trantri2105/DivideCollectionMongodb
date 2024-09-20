@@ -95,6 +95,12 @@ func generateRecord(client *mongo.Client) {
 				{"entity_id", fmt.Sprintf("Entity_%d", i)},
 				{"entity_type", "device"},
 				{"name", "abcd"},
+				{"ab", 1},
+				{"state", true},
+				{"abcd", bson.D{
+					{"a", "bc"},
+					{"num", 123},
+				}},
 			}
 			documents = append(documents, doc)
 		} else {
@@ -112,6 +118,12 @@ func generateRecord(client *mongo.Client) {
 				{"entity_id", fmt.Sprintf("Entity_%d", i)},
 				{"entity_type", "user"},
 				{"name", "abcd"},
+				{"ab", 1},
+				{"state", true},
+				{"abcd", bson.D{
+					{"a", "bc"},
+					{"num", 123},
+				}},
 			}
 			documents = append(documents, doc)
 		} else {
